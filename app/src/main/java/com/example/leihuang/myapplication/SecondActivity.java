@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
+import android.widget.TextView;
 
 
 public class SecondActivity extends Activity {
@@ -14,8 +16,12 @@ public class SecondActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
-
+        TextView showInfoText = (TextView) findViewById(R.id.showInfoText);
         Intent intent = getIntent();
+        String name = intent.getStringExtra(MainActivity.E_NAME);
+        String pwd = intent.getStringExtra(MainActivity.E_PWD);
+        String showString = "Your Name:" + name + "   " + "PassWord:" +pwd;
+        showInfoText.setText(showString);
     }
 
     @Override
